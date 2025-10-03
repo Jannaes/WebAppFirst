@@ -1,12 +1,37 @@
-# Visual Studio
+## Visual Studio -yleiset
 .vs/
-bin/
-obj/
-
-# Pakettien hallinta
-packages/
-
-# Muut yleiset
 *.user
 *.suo
+*.userosscache
+*.sln.docstates
+
+## Build-kansiot
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+
+## Paketinhallinta
+packages/
+*.nupkg
+*.snupkg
+
+## ASP.NET / IIS
+*.dbmdl
+*.mdf
+*.ldf
+
+## Node (jos joskus käytät)
+node_modules/
+
+## Julkaisu
+publish/
+wwwroot/dist/
+wwwroot/node_modules/
+
+## Lokit
 *.log
+
+## Käyttöjärjestelmän tiedostot
+.DS_Store
+Thumbs.db
