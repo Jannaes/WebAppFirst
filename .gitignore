@@ -2,3 +2,11 @@
 .vs/
 bin/
 obj/
+
+# Pakettien hallinta
+packages/
+
+# Muut yleiset
+*.user
+*.suo
+*.log
