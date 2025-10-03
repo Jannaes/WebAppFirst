@@ -151,6 +151,7 @@
     <Compile Include="Models\EmployeeTerritories.cs">
       <DependentUpon>NorthWindModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Logins.cs" />
     <Compile Include="Models\NorthWindModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -402,6 +403,7 @@
     <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
     <Content Include="Views\Orders\Ordersummary.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
