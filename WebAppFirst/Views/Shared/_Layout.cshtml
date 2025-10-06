@@ -15,40 +15,35 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Northwind</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarColor02">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="/Home">Koti</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/Home/About">Meistä</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/Home/Contact">Yhteystiedot</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/Home/Map">Map</a></li>
+    @{
+        if (Session["UserName"] == null)
+        {
+            Html.RenderPartial("_NavbarLoggedOut"); //siirretty koodi _NavbarLoggedOut-näkymään
+        }
+        else
+        {
+            Html.RenderPartial("_NavbarLoggedIn");  //siirretty koodi _NavbarLoggedIn-näkymään
+        }
+    }
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Northwind sites</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="/Products/Index">Product</a>
-                            <a class="dropdown-item" href="/Orders/Index">Tilaukset</a>
-                            <a class="dropdown-item" href="/Shippers/Index">Shippers</a>
-                            <a class="dropdown-item" href="/Shipper/Index">Shipper</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-sm-2" type="search" placeholder="Search">
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-    
-    @*Toinen vaihtoehto navbarin toteuttamiseen: 
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Northwind demo app</p>
+        </footer>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/bootstrap")  // pudotusvalikko ei jostain syystä toimi tämän kanssa*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+
+@*Toinen vaihtoehto navbarin toteuttamiseen:
     <!--<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
         <div class="container">
             @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
@@ -70,19 +65,3 @@
             </div>
         </div>
     </nav>-->*@
-
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Northwind demo app</p>
-        </footer>
-    </div>
-
-    
-    @Scripts.Render("~/bundles/jquery")
-    @*@Scripts.Render("~/bundles/bootstrap")  // pudotusvalikko ei jostain syystä toimi tämän kanssa*@
-    @RenderSection("scripts", required: false)
-</body>
-</html>

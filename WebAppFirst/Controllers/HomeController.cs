@@ -15,6 +15,7 @@ namespace WebAppFirst.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.LoginError = 0;
             return View();
         }
 
@@ -49,7 +50,8 @@ namespace WebAppFirst.Controllers
         [HttpPost]
         public ActionResult Authorize(Logins LoginModel)
         {
-            
+            NorthwindOriginalEntities1 db = new NorthwindOriginalEntities1();
+
             //Haetaan käyttäjän/Loginin tiedot annetuilla tunnustiedoilla tietokannasta LINQ-kyselyllä
             var LoggedUser = db.Logins.SingleOrDefault(x => x.UserName == LoginModel.UserName && x.PassWord == LoginModel.PassWord);
 
