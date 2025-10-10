@@ -6,6 +6,7 @@
 @*<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>*@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 @*JQuery, joka suoritetaan aina, kun sivu latautuu*@
 @section scripts {
@@ -16,8 +17,123 @@
             var loginModal = new
         bootstrap.Modal(document.getElementById('LoginRuutu'));
         loginModal.show();
- }
+        }
  });
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['BMW', 'Volvo', 'Nissan', 'Audi', 'Lada', 'Toyota'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        var ctx = document.getElementById('myChart2').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'horizontalBar',
+            data: {
+                labels: ['Pioneer', 'Marantz', 'Yamaha', 'Luxman', 'Rotel', 'Dual'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        var ctx = document.getElementById('myChart3').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Pioneer', 'Marantz', 'Yamaha', 'Luxman', 'Rotel', 'Dual'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
     </script>
 }
 
@@ -33,6 +149,25 @@
     @*FAS-ikonit, tuotu verkosta linkillä, joka yläpuolella:*@
     <p><a href="https://asp.net" class="btn btn-primary btn-lg fas bi bi-car-front-fill"> ASP.NET-sivut </a></p>
     <h1><p><a href="https://asp.net" class="fas bi bi-car-front-fill" title="ASP.NET-sivut"></a></p></h1>
+
+
+    @*Graafien koodit:*@
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4">
+                <canvas id="myChart"></canvas>
+            </div>
+
+            <div class="col-lg-4">
+                <canvas id="myChart2"></canvas>
+            </div>
+
+            <div class="col-lg-4">
+                <canvas id="myChart3"></canvas>
+            </div>
+        </div>
+    </div>
 
     @*Modal-tyyppisen ikkunan avauspainike: (viety valikkoon)*@
     @*<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#LoginRuutu">Avaa Modal-ikkuna</button>*@
